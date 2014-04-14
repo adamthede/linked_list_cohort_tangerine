@@ -29,13 +29,31 @@ class LinkedListItem
     @next_list_item.nil?
   end
 
-  def <=> (another)
+  def <=>(another)
     # self is the receiver
     # the receiver is compared against another
     # <=> returns -1, 0, 1 depending on whether self is less than, equal, or greater to another
     # Symbols > Strings
     # Strings > Integers
 
+    payload1 = self.payload
+    payload2 = another.payload
+
+    if payload1.class == payload2.class
+      payload1 <=> payload2
+    else
+      precedence = [Fixnum, String, Symbol]
+      index1 = precedence.index(payload1.class)
+      index2 = precedence.index(payload2.class)
+      class_equality = (index1 <=> index2)
+      if class_equality == 0
+        payload1 <=> payload2
+      else
+        class_equality
+      end
+    end
+  end
+=begin
     if self.payload.class == another.payload.class
       return self.payload <=> another.payload
     end
@@ -50,5 +68,5 @@ class LinkedListItem
       return -1
     end
   end
-
+=end
 end
