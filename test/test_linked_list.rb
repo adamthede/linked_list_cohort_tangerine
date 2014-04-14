@@ -35,14 +35,14 @@ class LinkedListTest < MiniTest::Unit::TestCase
 
   def test_08a_get_negative_index_raises_index_error
     ll = LinkedList.new("a")
-    assert_raise IndexError do
+    assert_raises IndexError do
       ll.get(-1)
     end
   end
 
   def test_08_get_item_that_doesnt_exist
     ll = LinkedList.new
-    assert_raise IndexError do
+    assert_raises IndexError do
       ll.get(1)
     end
   end
@@ -50,7 +50,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   def test_08b_get_item_that_doesnt_exist
     ll = LinkedList.new
     ll.add_item("bar")
-    assert_raise IndexError do
+    assert_raises IndexError do
       ll.get(2)
     end
   end
