@@ -141,4 +141,36 @@ class LinkedList
     ll
   end
 
+  def swap_with_next(i)
+    if i == 0
+      i1 = get_item(i)
+      i2 = get_item(i+1)
+      i3 = get_item(i+2)
+
+      # reorder items
+      i1.next_list_item = i3
+      i2.next_list_item = i1
+      @first_item = i2
+    elsif i == (@size - 2)
+      i0 = get_item(i-1)
+      i1 = get_item(i)
+      i2 = get_item(i+1)
+
+      # reorder items
+      i0.next_list_item = i2
+      i2.next_list_item = i1
+      i1.next_list_item = nil
+    else
+      i0 = get_item(i-1)
+      i1 = get_item(i)
+      i2 = get_item(i+1)
+      i3 = get_item(i+2)
+
+      # reorder items
+      i0.next_list_item = i2
+      i2.next_list_item = i1
+      i1.next_list_item = i3
+    end
+  end
+
 end

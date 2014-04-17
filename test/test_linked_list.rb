@@ -367,7 +367,7 @@ class LinkedListTest < MiniTest::Unit::TestCase
   def test_50_swap_last_item
     ll = LinkedList.new("a","b","c","d")
     assert_equal "| a, b, c, d |", ll.to_s
-    assert_raise IndexError do
+    assert_raises IndexError do
       ll.swap_with_next(3)
     end
   end
